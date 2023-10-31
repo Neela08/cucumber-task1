@@ -5,7 +5,8 @@ const Page = require('./page');
 class DynamicLoadingPage extends Page {
     
     get Example2Link () {
-        return $('/html/body/div[2]/div/div/a[2]');
+        
+        return $('a[href="/dynamic_loading/2"]');
     }
 
     get StartButton () {

@@ -5,9 +5,9 @@ const Page = require('./page');
 class HomePage extends Page {
 
     get AddRemoveElementLink() {
-        return $('//*[@id="content"]/ul/li[2]/a');
+        return $('a[href="/add_remove_elements/"]');
     }
-
+    
     get DynamicLoadingLink() {
         return $('a[href="/dynamic_loading"]');
     }
