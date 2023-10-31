@@ -17,6 +17,7 @@
     "@wdio/spec-reporter": "^8.20.0"
   },
   "dependencies": {
-    "geckodriver": "^4.2.1"
+    "geckodriver": "^4.2.1",
+     "wdio-chromedriver-service": "^8.0.0"
   }
 }
