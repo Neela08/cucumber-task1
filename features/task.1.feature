@@ -1,7 +1,7 @@
 Feature: Add Remove elements
 
   Scenario: addremoveelements
-    Given I am on the Add Remove Elements page
+    Given I am on the Home Page
     When I click the Add remove Element link
     Then I am on the Add remove Element page
     When I click add element button
