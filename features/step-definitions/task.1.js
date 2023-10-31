@@ -46,12 +46,12 @@ When(/^I click dynamic loading link$/, async () => {
 
 Then(/^I see Dynamically Loaded Page Elements page is opened$/, async () => {
 
-    await expect(DynamicLoadingPage.Example2Link).toBeExisting()
+    await expect(DynamicLoadingPage.ExampleLink(2)).toBeExisting()
 
 });
 
 When(/^I Click on the Example 2: Element rendered after the fact link$/, async () => {
-    await DynamicLoadingPage.ClickExample2Link()
+    await DynamicLoadingPage.ClickExampleLink(2)
 });
 
 Then(/^I see the Example 2: Element rendered after the fact is opened$/, async () => {
