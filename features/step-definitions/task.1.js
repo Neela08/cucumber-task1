@@ -2,7 +2,7 @@ const { Given, When, Then } = require('@cucumber/cucumber');
 const HomePage = require('../pageobjects/home.page');
 const AddRemoveElementPage = require('../pageobjects/add.remove.element.page')
 const DynamicLoadingPage = require('../pageobjects/dynamic.loading.page')
-Given(/^I am on the Add Remove Elements page$/, async () => {
+Given(/^I am on the Home Page$/, async () => {
     await HomePage.open();
 });
 
