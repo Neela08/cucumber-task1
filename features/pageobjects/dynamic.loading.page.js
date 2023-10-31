@@ -3,34 +3,34 @@ const Page = require('./page');
 
 
 class DynamicLoadingPage extends Page {
-    
-    get Example2Link () {
-        
-        return $('a[href="/dynamic_loading/2"]');
+
+    ExampleLink(linkIndex) {
+
+        return $(`a[href="/dynamic_loading/${linkIndex}"]`);
     }
 
-    get StartButton () {
+    get StartButton() {
         return $('#start button');
     }
-    get Indicator () {
+    get Indicator() {
         return $('#loading');
     }
-    get FinishText () {
+    get FinishText() {
         return $('#finish');
     }
-    
 
-    async ClickExample2Link () {
-      
-        await this.Example2Link.click();
+
+    async ClickExampleLink(num) {
+
+        return (await this.ExampleLink(num)).click()
     }
-    async ClickStartButton () {
-      
+    async ClickStartButton() {
+
         await this.StartButton.click();
     }
 
-    
-    open () {
+
+    open() {
         return super.open('dynamic_loading');
     }
 }
