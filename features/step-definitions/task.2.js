@@ -8,14 +8,7 @@ let send_text=""
 const image_number=2;
 const Randomizing=require('../../Utils/random.text') ;
 
-
-
-
 //test case 3
-
-Given(/^I am on the Home page$/,async () => {
-	await HomePage.open()
-});
 
 When(/^I click the hovers link$/,async() => {
     await HomePage.ClickHoverLink()
