@@ -1,7 +1,7 @@
 Feature: Task 2
 
   Background: Start
-    Given I am on the Home page
+    Given I am on the Home Page
 
   Scenario: Test hovers
     When I click the hovers link
