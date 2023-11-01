@@ -1,7 +1,10 @@
 Feature: Add Remove elements
 
-  Scenario: addremoveelements
+  Background: Start
     Given I am on the Home Page
+
+  Scenario: addremoveelements
+    
     When I click the Add remove Element link
     Then I am on the Add remove Element page
     When I click add element button
@@ -10,7 +13,7 @@ Feature: Add Remove elements
     Then Element is deleted
 
   Scenario: Dynamic Loading (Using waits)
-    Given I am on the Home page
+    
     When I click dynamic loading link
     Then I see Dynamically Loaded Page Elements page is opened
     When I Click on the Example 2: Element rendered after the fact link
