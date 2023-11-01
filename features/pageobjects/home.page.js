@@ -15,7 +15,14 @@ class HomePage extends Page {
     get JSAlertLink() {
         return $('//a[text()="JavaScript Alerts"][@href="/javascript_alerts"]');
     }
+    
+    get KeyPageLink() {
+        return $('//a[href="/key_presses"]');
+    }
+    async ClickKeyPageLink() {
 
+        await this.KeyPageLink.click();
+    }
     async ClickAddRemoveElementLink() {
 
         await this.AddRemoveElementLink.click();
