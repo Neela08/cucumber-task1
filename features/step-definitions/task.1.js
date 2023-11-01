@@ -35,9 +35,7 @@ Then(/^Element is deleted$/, async () => {
 //test case 2
 
 
-Given(/^I am on the Home page$/, async () => {
-    await HomePage.open();
-});
+
 
 When(/^I click dynamic loading link$/, async () => {
 
