@@ -6,6 +6,10 @@ const AlertPage=require('../pageobjects/alert.page');
 const keyPage = require('../pageobjects/key.page');
 let send_text=""
 const image_number=2;
+const Randomizing=require('../../Utils/random.text') ;
+
+
+
 
 //test case 3
 
@@ -32,19 +36,7 @@ Then(/^I see name: user 2 and view profile link are displayed under the image on
     await expect(HoverPage.locateUserProfile(image_number)).toBeDisplayed()
 	
 });
-function generateRandomText(length) {
-   
-    let text = '';
 
-    for (let i = 0; i < length; i++) {
-      
-      const randomCharacter = String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-
-      text += randomCharacter;
-    }
-
-    return text;
-  }
 
 
 
@@ -138,7 +130,7 @@ When(/^I Click the Click for JS Prompt button$/, async() => {
 
 
 When(/^I Enter any text into the prompt and click ok$/, async() => {
-    send_text=generateRandomText(5);
+    send_text =Randomizing.generateRandomText(5)
 	await browser.sendAlertText(send_text)
 	await browser.acceptAlert()
 });
