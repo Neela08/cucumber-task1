@@ -17,7 +17,11 @@ class HomePage extends Page {
     }
     
     get KeyPageLink() {
-        return $('//a[href="/key_presses"]');
+        return $('a[href="/key_presses"]');
+    }
+    get HoverLink()
+    {
+        return $('a[href="/hovers"]');
     }
     async ClickKeyPageLink() {
 
@@ -36,7 +40,10 @@ class HomePage extends Page {
         await this.JSAlertLink.click();
     }
 
+    async ClickHoverLink() {
 
+        await this.HoverLink.click();
+    }
     open() {
         return super.open('');
     }
