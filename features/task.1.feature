@@ -1,4 +1,4 @@
-Feature: Add Remove elements
+Feature: Task 1
 
   Background: Start
     Given I am on the Home Page

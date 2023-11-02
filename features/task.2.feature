@@ -13,21 +13,21 @@ Feature: Task 2
     When I click on the key press link
     Then I am on the Key Press page
     When I press Backspace key
-    Then I can see the message You entered: BACK_SPACE
+    Then I can see the message "You entered: BACK_SPACE"
 
   Scenario: JS Alerts
     When I click on the JavaScript Alerts link
     Then I am on the JavaScript Alerts page
-    When I press Click for JS Alert button
+    When I press "Click for JS Alert"
     Then User prompt with "I am a JS Alert" is shown
     When I close the alert
     Then I can see the user prompt is closed
-    When I Click the Click for JS Confirm button
+    When I press "Click for JS Confirm"
     Then User prompt with "I am a JS Confirm" is shown
     When I click cancel button
     Then I can see the user prompt is closed
     And  The message that you've clicked Cancel is shown under the results section
-    When I Click the Click for JS Prompt button
+    When I press "Click for JS Prompt"
     Then User prompt with "I am a JS prompt" is shown
     When I Enter any text into the prompt and click ok
     Then I can see the user prompt is closed
