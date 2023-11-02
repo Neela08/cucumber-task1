@@ -1,3 +1,5 @@
+const path=require('path');
+downloadDir = path.join(__dirname, 'tempDownload/chrome');
 exports.config = {
     
     runner: 'local',
@@ -13,10 +15,29 @@ exports.config = {
     maxInstances: 3,
     waitInterval: 300,
    
-    capabilities: [
-        { browserName: 'chrome', maxInstances: 2 },
-        { browserName: 'firefox' , maxInstances: 1},
-      ],
+    
+    capabilities: [{
+        browserName: 'chrome',
+        maxInstances: 2,
+        "goog:chromeOptions": {
+          prefs: {
+            prompt_for_download: false,
+            'download.default_directory': downloadDir+'/chrome',
+          },
+        },
+      }, {
+        browserName: 'firefox',
+        maxInstances: 1,
+        'moz:firefoxOptions': {
+          prefs: {
+            'browser.download.folderList': 2,  
+            'browser.download.dir': downloadDir+'/firefox', 
+            'browser.download.useDownloadDir': true,  
+            'browser.helperApps.neverAsk.saveToDisk': 'application/octet-stream' 
+          }
+        }
+      }],
+    
    
     logLevel: 'warn',
     
@@ -33,7 +54,7 @@ exports.config = {
     framework: 'cucumber',
     
    
-    reporters: ['spec'],
+     reporters: [['allure', {outputDir: 'allure-results'}]],
 
    
     cucumberOpts: {
