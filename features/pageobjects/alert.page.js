@@ -1,41 +1,25 @@
-const { $ } = require('@wdio/globals')
-const Page = require('./page');
-
+const { $ } = require("@wdio/globals");
+const Page = require("./page");
 
 class AlertPage extends Page {
+  getJsButtonByText(txt) {
+    return $(`//button[text()="${txt}"]`);
+  }
+  get Result() {
+    return $("#result");
+  }
 
-    get JSAlert() {
-        return $('//button[text()="Click for JS Alert"]');
-    }
+  async clickJSButton(buttonText) {
+    return await this.getJsButtonByText(buttonText).click();
+  }
 
-    get JSConfirm() {
-        return $('//button[text()="Click for JS Confirm"]');
-    }
-    get JSPrompt() {
-        return $('//button[text()="Click for JS Prompt"]');
-    }
-    get Result() {
-        return $('#result');
-    }
+  async isJSButtonExisting(buttonText) {
+    return this.getJsButtonByText(buttonText).isExisting();
+  }
 
-
-    async ClickJSAlert() {
-
-        await this.JSAlert.click();
-    }
-    async ClickJSConfirm() {
-
-        await this.JSConfirm.click();
-    }
-    async ClickJSPrompt() {
-
-        await this.JSPrompt.click();
-    }
-
-
-    open() {
-        return super.open('javascript_alerts');
-    }
+  open() {
+    return super.open("javascript_alerts");
+  }
 }
 
 module.exports = new AlertPage();
