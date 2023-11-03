@@ -1,18 +1,21 @@
 const { $ } = require("@wdio/globals");
+regex = /[a-zA-Z0-9]/;
+text = "";
 class Randomizing {
-  generateRandomText(length) {
-    let text = "";
-
+   
+   generateRandomText(length) {
+   
     for (let i = 0; i < length; i++) {
-      const randomCharacter = String.fromCharCode(
-        Math.floor(Math.random() * 26) + 97
-      );
-
+      const randomCharacter = regex[Math.floor(Math.random() * regex.length)];
       text += randomCharacter;
     }
-
+  
     return text;
   }
+  
+  
+  
+
 }
 
 module.exports = new Randomizing();
