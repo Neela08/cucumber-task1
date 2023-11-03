@@ -1,41 +1,69 @@
+
+const path=require('path');
+downloadDir = path.join(__dirname, 'tempDownload');
+
 exports.config = {
-    
+
     runner: 'local',
     
     specs: [
         './features/**/*.feature'
     ],
-    
+    // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
     ],
    
     maxInstances: 3,
     waitInterval: 300,
-   
-    capabilities: [
-        { browserName: 'chrome', maxInstances: 2 },
-        { browserName: 'firefox' , maxInstances: 1},
-      ],
-   
+    
+    capabilities: [{
+      browserName: 'chrome',
+      maxInstances: 2,
+      "goog:chromeOptions": {
+        prefs: {
+          prompt_for_download: false,
+          'download.default_directory': downloadDir+'/chrome',
+        },
+      },
+    }, {
+      browserName: 'firefox',
+      maxInstances: 1,
+      'moz:firefoxOptions': {
+        prefs: {
+          'browser.download.folderList': 2,  
+          'browser.download.dir': downloadDir+'/firefox', 
+          'browser.download.useDownloadDir': true,  
+          'browser.helperApps.neverAsk.saveToDisk': 'application/octet-stream' 
+        }
+      }
+    }],
+    
     logLevel: 'warn',
     
     bail: 0,
-    
+    //
+    // Set a base URL in order to shorten url command calls. If your `url` parameter starts
+    // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
+    // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
+    // gets prepended directly.
     baseUrl: 'https://the-internet.herokuapp.com',
-    
-    waitforTimeout: 5000,
-    
+    //
+    // Default timeout for all waitFor* commands.
+    waitforTimeout: 10000,
+    //
+    // Default timeout in milliseconds for request
+    // if browser driver or grid doesn't send response
     connectionRetryTimeout: 120000,
-   
+    //
+    // Default request retries count
     connectionRetryCount: 3,
-    
+   
     framework: 'cucumber',
     
-   
     reporters: ['spec'],
 
-   
+    // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
         require: ['./features/step-definitions/*.js'],

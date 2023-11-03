@@ -1,9 +1,7 @@
-const { browser } = require('@wdio/globals')
-
+const { browser } = require("@wdio/globals");
 
 module.exports = class Page {
-   
-    open (path) {
-        return browser.url(`https://the-internet.herokuapp.com/${path}`)
-    }
-}
+  open(path) {
+    return browser.url(`https://the-internet.herokuapp.com/${path}`);
+  }
+};
